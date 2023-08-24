@@ -44,13 +44,6 @@ Shader "Unlit/Threshold"
                 return o;
             }
 
-            // Converts to Black and White our image.
-            inline fixed ToBlackAndWhite(fixed4 Input)
-            {
-                // For demonstration purposes, we will use the Type C.
-                return Input.r * 0.3f + Input.g * 0.59f + Input.b * 0.11f;
-            }
-
             // For our fragment shader, let's do our threshold.
             fixed4 frag (v2f input) : SV_Target
             {
@@ -60,13 +53,12 @@ Shader "Unlit/Threshold"
                 // Calculate the range of the threshold.
                 static const fixed _ThresholdRange = _Threshold / 255.f;
 
-                // Convert the color to Black and White for sampling.
-                const fixed BW = ToBlackAndWhite(result);
-                
-                // Check for threshold, if pass, pixel is white.
-                if (BW >= _ThresholdRange)
-                    result.r = result.g = result.b = 1;
-                else // Otherwise, pixel is black.
+                // If any of our colors go through the threshold, it is white.
+                if (result.r >= _ThresholdRange ||
+                    result.g >= _ThresholdRange ||
+                    result.b >= _ThresholdRange)
+                        result.r = result.g = result.b = 1;
+                else // Otherwise, its black.
                     result.r = result.g = result.b = 0;
                 
                 // Return the result.

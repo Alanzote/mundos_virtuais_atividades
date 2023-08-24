@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Unlit_Intensity
-  m_Shader: {fileID: 4800000, guid: 869b039f57ee477ea13737bd5d4604a8, type: 3}
+  m_Name: Unlit_ColorPallete
+  m_Shader: {fileID: 4800000, guid: 2e3bf0b0a47e46a5b90af2bfc2abb343, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -28,7 +28,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _Multiplier: 1.6
+    m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []
